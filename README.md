@@ -23,5 +23,3 @@ NoClip, Freecam &amp; Entity Moving Script for RedM, the Red Dead Redemption 2 M
 You may want to also install my [Settings Menu](https://github.com/RCPisAwesome/RedmRCPsettings) too so you have a crosshair commmand to make things easier
 # Issues/Bugs &amp; New Features:
 If you find a bug, issue or error or if you want to request a new feature, [create an issue](https://github.com/RCPisAwesome/RedmRCPNoClip/issues) with as much information as you can provide
-
-If you ever get stuck in the menu from an issue you can do rcpuifix in the F8 console to close it
