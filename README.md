@@ -1,4 +1,4 @@
-# RedM RCP NoClip
+# RedM RCP's Trainer Menu: NoClip
 NoClip, Freecam &amp; Entity Moving Script for RedM, the Red Dead Redemption 2 Multiplayer Mod, from the Creators of FiveM!
 
 # Screenshots:
@@ -8,7 +8,7 @@ NoClip, Freecam &amp; Entity Moving Script for RedM, the Red Dead Redemption 2 M
 # Video:
 [![Video](https://img.youtube.com/vi/VFnSqpMkO1s/maxresdefault.jpg)](https://www.youtube.com/watch?v=VFnSqpMkO1s)
 # Patreon:
-[![patreon](https://c5.patreon.com/external/favicon/favicon.ico)](https://www.patreon.com/RCPisAwesome)     For early access to scripts and videos and other rewards, support me on Patreon page!
+[![patreon](https://c5.patreon.com/external/favicon/favicon.ico)](https://www.patreon.com/RCPisAwesome)     For early access to scripts and videos and other rewards, support me on my Patreon page!
 # Features:
 - Do /rcpnoclip in the RedM chat to toggle no clip
 - Do /rcpfreecam in the RedM chat to toggle a free moving camera
