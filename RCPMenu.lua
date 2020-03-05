@@ -178,22 +178,23 @@ CreateThread( function()
 end)
 
 function GetEntityInView()
-    local coords = GetGameplayCamCoord()
-    local forward_vector = RotAnglesToVec(GetGameplayCamRot(1))
-    local rayhandle = StartShapeTestRay(coords, coords + (forward_vector * 10000.0), -1,nil,7)
-    local retval,hit,endCoords,surfaceNormal,entityHit = GetShapeTestResult(rayhandle)
+    local RotateX,RotateY,RotateZ = table.unpack(GetGameplayCamRot())
+    local CoordX,CoordY,CoordZ = table.unpack(GetGameplayCamCoord())
+
+    local MathRotateX = -math.sin((math.pi / 180) * RotateZ) * math.abs(math.cos((math.pi / 180) * RotateX))
+    local MathRotateY = math.cos((math.pi / 180) * RotateZ) * math.abs(math.cos((math.pi / 180) * RotateX))
+    local MathRotateZ = math.sin((math.pi / 180) * RotateX)
+    
+    local EndCoordX = CoordX + MathRotateX * 10000.0
+    local EndCoordY = CoordY + MathRotateY * 10000.0
+    local EndCoordZ = CoordZ + MathRotateZ * 10000.0
+    
+    local retval,hit,endCoords,surfaceNormal,entityHit = GetShapeTestResult(StartShapeTestRay(CoordX,CoordY,CoordZ,EndCoordX,EndCoordY,EndCoordZ, -1, -1, 1))
     if entityHit > 0 then
         return entityHit
     else
         return nil
     end
-end
-
-function RotAnglesToVec(rot) -- input vector3
-    local z = math.rad(rot.z)
-    local x = math.rad(rot.x)
-    local num = math.abs(math.cos(x))
-    return vector3(-math.sin(z) * num, math.cos(z) * num, math.sin(x))
 end
 
 CreateThread( function()
