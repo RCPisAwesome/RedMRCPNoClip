@@ -56,7 +56,7 @@ end, false)
 RegisterCommand('rcpentitygravityoff', function() 
     local entityhit = GetEntityInView()
     if ((entityhit == nil) or (entityhit == PlayerPedId())) then
-        DrawText("No Model",0.5,0.05)
+        DrawText("No Entity",0.5,0.05)
     else
         DrawText("Entity: ".. entityhit,0.5,0.55)
         SetEntityHasGravity(entityhit,true)
@@ -96,7 +96,8 @@ CreateThread( function()
                 ClearPedTasksImmediately(PlayerPedId(),false,false)
                 DrawText("Move Entity Speed: "..speedentity,0.5,0.85)
                 DrawText("Page Up + Scroll - Changes Speed by 0.01, Page Down + Scroll - Changes Speed by 0.001",0.5,0.90)
-                DrawText("W/A/S/D - Move, Spacebar - Up, Shift - Down, Scroll Up - Increase Speed 0.1, Scroll Down - Decrease Speed 0.1",0.5,0.95)
+                DrawText("W/A/S/D - Move, Spacebar - Up, Shift - Down, Scroll Up - Increase Speed 0.1, Scroll Down - Decrease Speed 0.1",0.5,0.92)
+                DrawText("Up/Down Arrows - Tip Forwards/Backwards, Left/Right Arrows - Tip Left/Right, Q/Z - Rotate Left/Right",0.5,0.94)
             else
                 ClearPedTasksImmediately(PlayerPedId(),false,false)
                 DrawText("FreeCam Speed: "..speedfreecam,0.5,0.85)
@@ -211,7 +212,8 @@ CreateThread( function()
                 x,y,z = table.unpack(GetEntityCoords(ped))
                 pitch,roll,yaw = table.unpack(GetEntityRotation(ped,0))
                 DrawText("Page Up + Scroll - Changes Speed by 0.01, Page Down + Scroll - Changes Speed by 0.001",0.5,0.90)
-                DrawText("W/A/S/D - Move, Spacebar - Up, Shift - Down, Scroll Up - Increase Speed 0.1, Scroll Down - Decrease Speed 0.1",0.5,0.95)
+                DrawText("W/A/S/D - Move, Spacebar - Up, Shift - Down, Scroll Up - Increase Speed 0.1, Scroll Down - Decrease Speed 0.1",0.5,0.92)
+                DrawText("Up/Down Arrows - Tip Forwards/Backwards, Left/Right Arrows - Tip Left/Right, Q/Z - Rotate Left/Right",0.5,0.94)
                 FreezeEntityPosition(ped,true)
                 ClearPedTasksImmediately(PlayerPedId(),false,false)
                 
@@ -265,16 +267,16 @@ CreateThread( function()
                 end
 
                 if IsControlPressed(0,0x6319DB71) then --Up Arrow
-                    SetEntityRotation(ped,pitch,roll+speedentity,yaw,0,true)
+                    SetEntityRotation(ped,pitch+speedentity,roll,yaw,0,true)
                 end
                 if IsControlPressed(0,0x05CA7C52) then --Down Arrow
-                    SetEntityRotation(ped,pitch,roll-speedentity,yaw,0,true)
-                end
-                if IsControlPressed(0,0xA65EBAB4) then --Left Arrow
                     SetEntityRotation(ped,pitch-speedentity,roll,yaw,0,true)
                 end
+                if IsControlPressed(0,0xA65EBAB4) then --Left Arrow
+                    SetEntityRotation(ped,pitch,roll+speedentity,yaw,0,true)
+                end
                 if IsControlPressed(0,0xDEB34313) then --Right Arrow
-                    SetEntityRotation(ped,pitch+speedentity,roll,yaw,0,true)
+                    SetEntityRotation(ped,pitch,roll-speedentity,yaw,0,true)
                 end
                 if IsControlPressed(0,0xDE794E3E) then --Q
                     SetEntityRotation(ped,pitch,roll,yaw-speedentity,0,true)
